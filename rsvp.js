@@ -120,7 +120,7 @@ const partyData = {
         'JP Perrottelli',
         'Samantha Perrottelli',
         'Grandma Newman ',
-        ' Kevin Garrish'],
+        'Kevin Garrish'],
     'Tara Ounan': ['Tara Ounan'],
     'The Future Mr. & Mrs. DiRusso': ['Christian DiRusso', 'Alex Stavropoulos'],
     'The Future Mr. & Mrs. Evan Ronen': ['Jess Behr', 'Evan Ronen'],
@@ -132,6 +132,10 @@ const partyData = {
         'Kellie Revere',
         'Sophie Revere']
 }
+
+emailjs.init({ publicKey: 'TDsuNGYYFkl3iliuj' }); // Replace with your EmailJS user ID
+
+
 
 document.getElementById('nameSearch').addEventListener('input', function () {
     const query = this.value.toLowerCase();
@@ -171,7 +175,7 @@ function populatePartyMembers(name) {
             const div = document.createElement('div');
             div.classList.add('form-group');
             div.innerHTML = `
-                <label>${member}:</label>
+                <h4>${member}:</h4>
                 <div class="radio-group">
                     <label>
                         <input type="radio" name="rsvp_${member}" value="Attending" required> Joyfully Accept
@@ -190,43 +194,25 @@ function populatePartyMembers(name) {
     }
 }
 
-// document.getElementById('groupInput').addEventListener('input', function(e) {
-//     const query = e.target.value;
-//     // Fetch groups based on input and display typeahead suggestions...
-// });
-
-// document.getElementById('groupInput').addEventListener('change', function(e) {
-//     const groupId = e.target.value; // Assuming value is group ID
-//     // Fetch guests based on groupId and display them with RSVP options...
-// });
-
 document.getElementById('rsvpForm').addEventListener('submit', function (e) {
     e.preventDefault();
-    const guestList = document.querySelectorAll('#guestList select');
-    const rsvpData = Array.from(guestList).map(select => ({
-        guestId: select.getAttribute('data-guest-id'),
-        guestName: select.getAttribute('data-guest-name'),
-        rsvpStatus: select.value
-    }));
-
-    const emailBody = `
-        Group: ${document.getElementById('groupInput').value}<br>
-        Guests:<br>
-        ${rsvpData.map(guest => `${guest.guestName}: ${guest.rsvpStatus}`).join('<br>')}
-    `;
-
-    Email.send({
-        Host: "smtp.gmail.com",
-        Username: "your-email@gmail.com",
-        Password: "your-email-password", // Or your app-specific password
-        To: 'recipient@example.com',
-        From: "your-email@gmail.com",
-        Subject: "RSVP Form Submission",
-        Body: emailBody
-    }).then(function (message) {
-        alert('RSVP submitted and email sent');
-    }).catch(function (error) {
-        alert('Failed to send RSVP');
+    const rsvpData = Array.from(document.querySelectorAll('#partyMembers .form-group')).map(div => {
+        const member = div.querySelector('h4').textContent.replace(':', '');
+        const rsvpStatus = div.querySelector('input[type="radio"]:checked').value;
+        return { member, rsvpStatus };
     });
-});
 
+    const emailParams = {
+        group: document.getElementById('nameSearch').value,
+        guests: rsvpData.map(guest => `${guest.member}: ${guest.rsvpStatus}`).join('\n')
+    };
+
+    emailjs.send('service_813t19c', 'template_hi62axb', emailParams)
+        .then(function (response) {
+            console.log('SUCCESS!', response.status, response.text);
+            alert('RSVP submitted and email sent');
+        }, function (error) {
+            console.log('FAILED...', error);
+            alert('Failed to send RSVP');
+        });
+});

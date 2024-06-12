@@ -29,6 +29,7 @@ h2 {
 .form-group label {
     display: block;
     margin-bottom: 5px;
+    text-align: center;
 }
 
 .form-group input,
@@ -53,6 +54,7 @@ h2 {
 
 .submit-btn:hover {
     background-color: #888;
+    cursor: pointer;
 }
 
 .party-members {
@@ -83,4 +85,8 @@ h2 {
 
 #nameDropdown div:hover {
     background-color: #EEE;
+}
+
+input[type="radio"]:hover {
+    cursor: pointer;
 }
