@@ -379,3 +379,7 @@
   font-weight: bold;
   cursor: pointer;
 }
+
+#submit {
+  display: none;
+}
