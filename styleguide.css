@@ -1,0 +1,14 @@
+:root {
+  --bodycopy-font-family: "Montserrat", Helvetica;
+  --bodycopy-font-weight: 400;
+  --bodycopy-font-size: 20px;
+  --bodycopy-letter-spacing: 0px;
+  --bodycopy-line-height: 28px;
+  --bodycopy-font-style: normal;
+  --semiheader-font-family: "Lusitana", Helvetica;
+  --semiheader-font-weight: 400;
+  --semiheader-font-size: 24px;
+  --semiheader-letter-spacing: 1.68px;
+  --semiheader-line-height: normal;
+  --semiheader-font-style: normal;
+}
