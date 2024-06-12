@@ -211,6 +211,7 @@ document.getElementById('rsvpForm').addEventListener('submit', function (e) {
         .then(function (response) {
             console.log('SUCCESS!', response.status, response.text);
             alert('RSVP submitted and email sent');
+            window.location.href = './index.html'
         }, function (error) {
             console.log('FAILED...', error);
             alert('Failed to send RSVP');
