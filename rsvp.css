@@ -32,7 +32,6 @@ h2 {
     padding: 8px;
     box-sizing: border-box;
     border: 1px solid #ccc;
-    border-radius: 5px;
 }
 .submit-btn {
     display: block;
@@ -64,4 +63,14 @@ h2 {
 .header-img img {
     width: 100%;
     border-radius: 10px 10px 0 0;
+}
+
+#nameDropdown div {
+    padding: 0.25rem;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+#nameDropdown div:hover {
+    background-color: #EEE;
 }
