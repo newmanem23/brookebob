@@ -1,0 +1,67 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-image: url('path/to/your/nyc-watercolor-image.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+h2 {
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.submit-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #a1a1a1;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 16px;
+}
+.submit-btn:hover {
+    background-color: #888;
+}
+.party-members {
+    margin-top: 15px;
+}
+.radio-group {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+.header-img {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.header-img img {
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+}

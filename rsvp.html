@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="rsvp.css">
+    <title>RSVP</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header-img">
+            <img src="path/to/your/nyc-watercolor-image.png" alt="Wedding Header Image">
+        </div>
+        <h2>RSVP</h2>
+        <p>Brooke and Bob's Wedding</p>
+        <p>If you're responding for you and a guest (or your family), you'll be able to RSVP for your entire group.</p>
+        <form id="rsvpForm" action="path/to/your/rsvp-handler.php" method="POST">
+            <div class="form-group">
+                <input type="text" id="nameSearch" name="nameSearch" placeholder="Full Name">
+                <div id="nameDropdown" style="display:none;"></div>
+            </div>
+            <div class="party-members" id="partyMembers"></div>
+            <button type="submit" class="submit-btn">Find Your Invitation</button>
+        </form>
+    </div>
+</body>
+
+</html>
