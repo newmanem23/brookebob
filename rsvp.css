@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     padding: 20px;
-    background-image: url('path/to/your/nyc-watercolor-image.png');
+    background-color: #FFF5EE;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
