@@ -143,7 +143,7 @@ document.getElementById('nameSearch').addEventListener('input', function () {
     const findButton = document.getElementById('find');
     const submitButton = document.getElementById('submit')
     dropdown.innerHTML = '';
-    if (query) {
+    if (query.length >= 3) {
         findButton.style.display = 'block';
         submitButton.style.display = 'none';
         const results = Object.keys(partyData).filter(name => name.toLowerCase().includes(query));
