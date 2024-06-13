@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding FAQs</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+          display: grid;
+          place-items: center;
+          font-family: "Lusitana", Helvetica;
+        }
+        .accordion {
+            background-color: #eee;
+            color: #444;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            transition: 0.4s;
+        }
+
+        .active, .accordion:hover {
+            background-color: #ccc;
+        }
+
+        .panel {
+            padding: 0 18px;
+            display: none;
+            background-color: white;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Wedding FAQs</h2>
+
+<button class="accordion">What is the attire?</button>
+<div class="panel">
+  <p>The attire for the wedding is Cocktail, which includes suits and dresses.</p>
+</div>
+
+<button class="accordion">Can children attend the wedding?</button>
+<div class="panel">
+  <p>No, this is an adult-only celebration.</p>
+</div>
+
+<button class="accordion">Can I bring a plus one?</button>
+<div class="panel">
+  <p>Unfortunately, if the name is not listed on the invite, we do not have the space to provide a plus one.</p>
+</div>
+
+<button class="accordion">Is transportation provided?</button>
+<div class="panel">
+  <p>All hotels listed on the site are within walking distance to the venue.</p>
+</div>
+
+<button class="accordion">Where will all the events take place?</button>
+<div class="panel">
+  <p>All events will be held at Battello.</p>
+</div>
+
+<button class="accordion">Is parking available?</button>
+<div class="panel">
+  <p>If you are just coming for the evening, there is parking available directly at Battello. Please note that spots are limited.</p>
+</div>
+
+<button class="accordion">What is the schedule for the day?</button>
+<div class="panel">
+  <p>The schedule is as follows:
+    <ul>
+      <li>Ceremony: 5pm</li>
+      <li>Cocktail Hour: 6-7pm</li>
+      <li>Reception: 7-11pm</li>
+      <li>After Party: 11:30pm - 2:30am</li>
+    </ul>
+  </p>
+</div>
+
+<button class="accordion">Who can I contact for additional questions?</button>
+<div class="panel">
+  <p>Please reach out directly to Brooke or Bobby if you have any other additional questions.</p>
+</div>
+
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    for (var i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
