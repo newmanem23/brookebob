@@ -9,7 +9,8 @@
 .OPT-macbook-pro .div {
   background-color: #ffffff;
   overflow: hidden;
-  width: 1512px;
+  width: 100%;
+  max-width: 1512px;
   height: 3153px;
   position: relative;
 }
@@ -23,21 +24,15 @@
 } */
 
 .OPT-macbook-pro .first-section {
-  position: absolute;
-  max-width: 1512px;
-  height: 900px;
-  top: 0;
-  left: 0;
+  width: min(100%, 1512px);
+  height: auto;
   mix-blend-mode: luminosity;
 }
 
 .OPT-macbook-pro .header {
-  position: absolute;
   width: 100%;
   height: 65px;
-  top: 0;
-  left: 0;
-  background-color: transparent;
+  background-color: #f9f9f9;;
 }
 
 .OPT-macbook-pro .navbar {
@@ -75,9 +70,7 @@
 
 .OPT-macbook-pro .accomodations {
   width: 158px;
-  left: 677px;
-  position: absolute;
-  top: 25px;
+
   font-family: "Lusitana", Helvetica;
   font-weight: 400;
   color: #000000;
@@ -258,14 +251,14 @@
 
 .OPT-macbook-pro .element-RSVP {
   position: absolute;
-  width: 1512px;
-  height: 841px;
+  width: min(100%, 1512px);
+  height: auto;
   top: 900px;
   left: 0;
 }
 
 .OPT-macbook-pro .overlap-2 {
-  position: absolute;
+  position: relative;
   width: 730px;
   height: 631px;
   top: 103px;
@@ -382,4 +375,16 @@ a div.link:hover {
 
 #submit {
   display: none;
+}
+
+@media only screen and (max-width: 640px) {
+   .OPT-macbook-pro .navbar {
+      flex-direction: column;
+      padding: 1rem;
+      gap: 1rem;
+      height: auto;
+    }
+    .OPT-macbook-pro .header {
+      height: auto;
+    }
 }
