@@ -135,85 +135,94 @@ const partyData = {
 
 emailjs.init({ publicKey: 'TDsuNGYYFkl3iliuj' }); // Replace with your EmailJS user ID
 
+document.addEventListener('DOMContentLoaded', function () {
 
-
-document.getElementById('nameSearch').addEventListener('input', function () {
-    const query = this.value.toLowerCase();
-    const dropdown = document.getElementById('nameDropdown');
-    const findButton = document.getElementById('find');
-    const submitButton = document.getElementById('submit')
-    dropdown.innerHTML = '';
-    if (query.length >= 3) {
-        findButton.style.display = 'block';
-        submitButton.style.display = 'none';
-        const results = Object.keys(partyData).filter(name => name.toLowerCase().includes(query));
-        if (results.length > 0) {
-            dropdown.style.display = 'block';
-            results.forEach(name => {
-                const div = document.createElement('div');
-                div.textContent = name;
-                div.addEventListener('click', function () {
-                    document.getElementById('nameSearch').value = name;
-                    populatePartyMembers(name);
-                    dropdown.style.display = 'none';
+    document.getElementById('nameSearch').addEventListener('input', function () {
+        const query = this.value.toLowerCase();
+        const dropdown = document.getElementById('nameDropdown');
+        const findButton = document.getElementById('find');
+        const submitButton = document.getElementById('submit')
+        dropdown.innerHTML = '';
+        if (query.length >= 3) {
+            findButton.style.display = 'block';
+            submitButton.style.display = 'none';
+            const results = Object.keys(partyData).filter(name => name.toLowerCase().includes(query));
+            if (results.length > 0) {
+                dropdown.style.display = 'block';
+                results.forEach(name => {
+                    const div = document.createElement('div');
+                    div.textContent = name;
+                    div.addEventListener('click', function () {
+                        document.getElementById('nameSearch').value = name;
+                        populatePartyMembers(name);
+                        dropdown.style.display = 'none';
+                    });
+                    dropdown.appendChild(div);
                 });
-                dropdown.appendChild(div);
-            });
+            } else {
+                dropdown.style.display = 'none';
+            }
         } else {
             dropdown.style.display = 'none';
         }
-    } else {
-        dropdown.style.display = 'none';
-    }
-});
-
-function populatePartyMembers(name) {
-    const partyMembers = document.getElementById('partyMembers');
-    partyMembers.innerHTML = '';
-    if (partyData[name]) {
-        partyData[name].forEach(member => {
-            const div = document.createElement('div');
-            div.classList.add('form-group');
-            div.innerHTML = `
-                <h4>${member}:</h4>
-                <div class="radio-group">
-                    <label>
-                        <input type="radio" name="rsvp_${member}" value="Attending" required> Joyfully Accept
-                    </label>
-                    <label>
-                        <input type="radio" name="rsvp_${member}" value="Not Attending" required> Regretfully Decline
-                    </label>
-                </div>
-            `;
-            partyMembers.appendChild(div);
-        });
-        const findButton = document.getElementById('find');
-        const submitButton = document.getElementById('submit');
-        findButton.style.display = 'none';
-        submitButton.style.display = 'block';
-    }
-}
-
-document.getElementById('rsvpForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-    const rsvpData = Array.from(document.querySelectorAll('#partyMembers .form-group')).map(div => {
-        const member = div.querySelector('h4').textContent.replace(':', '');
-        const rsvpStatus = div.querySelector('input[type="radio"]:checked').value;
-        return { member, rsvpStatus };
     });
 
-    const emailParams = {
-        group: document.getElementById('nameSearch').value,
-        guests: rsvpData.map(guest => `${guest.member}: ${guest.rsvpStatus}`).join('\n')
-    };
+    function populatePartyMembers(name) {
+        const partyMembers = document.getElementById('partyMembers');
+        partyMembers.innerHTML = '';
+        if (partyData[name]) {
+            partyData[name].forEach(member => {
+                const div = document.createElement('div');
+                div.classList.add('form-group');
+                div.innerHTML = `
+                    <h4>${member}:</h4>
+                    <div class="radio-group">
+                        <label>
+                            <input type="radio" name="rsvp_${member}" value="Attending" required> Joyfully Accept
+                        </label>
+                        <label>
+                            <input type="radio" name="rsvp_${member}" value="Not Attending" required> Regretfully Decline
+                        </label>
+                    </div>
+                `;
+                partyMembers.appendChild(div);
+            });
+            const findButton = document.getElementById('find');
+            const submitButton = document.getElementById('submit');
+            findButton.style.display = 'none';
+            submitButton.style.display = 'block';
+        }
+    }
 
-    emailjs.send('service_813t19c', 'template_hi62axb', emailParams)
-        .then(function (response) {
-            console.log('SUCCESS!', response.status, response.text);
-            alert('RSVP submitted and email sent');
-            window.location.href = './index.html'
-        }, function (error) {
-            console.log('FAILED...', error);
-            alert('Failed to send RSVP');
+    document.getElementById('rsvpForm').addEventListener('keydown', function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+        }
+    });
+
+
+    document.getElementById('rsvpForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        const rsvpData = Array.from(document.querySelectorAll('#partyMembers .form-group')).map(div => {
+            const member = div.querySelector('h4').textContent.replace(':', '');
+            const rsvpStatus = div.querySelector('input[type="radio"]:checked').value;
+            return { member, rsvpStatus };
         });
+
+        const emailParams = {
+            group: document.getElementById('nameSearch').value,
+            guests: rsvpData.map(guest => `${guest.member}: ${guest.rsvpStatus}`).join('\n')
+        };
+
+        emailjs.send('service_813t19c', 'template_hi62axb', emailParams)
+            .then(function (response) {
+                console.log('SUCCESS!', response.status, response.text);
+                alert('RSVP submitted and email sent');
+                window.location.href = './index.html'
+            }, function (error) {
+                console.log('FAILED...', error);
+                alert('Failed to send RSVP');
+            });
+    });
+
 });
