@@ -102,7 +102,7 @@
   width: min(100%, 1512px);
   height: auto;
   background-color: #0b0b0b;
-  padding: 6rem; 
+  padding: 6rem;
 }
 
 .OPT-macbook-pro .footer {
@@ -138,9 +138,6 @@
   font-size: var(--bodycopy-font-size);
   letter-spacing: var(--bodycopy-letter-spacing);
   line-height: var(--bodycopy-line-height);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   font-style: var(--bodycopy-font-style);
@@ -148,15 +145,12 @@
 
 .OPT-macbook-pro .additional-options {
   position: relative;
-  width: 100%;   
+  width: 100%;
   font-family: "Lusitana", Helvetica;
   font-weight: 400;
   color: #ffffff;
   font-size: 24px;
   line-height: 24px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
   -webkit-line-clamp: 25;
   -webkit-box-orient: vertical;
 }
@@ -195,21 +189,16 @@
 .OPT-macbook-pro .overlap-group {
   position: relative;
   width: 100%;
-  height: 192px;
+  padding: 1rem;
   border: 1px solid;
   border-color: #ffffff;
 }
 
 .OPT-macbook-pro .the-westin-jersey {
-  height: 110px;
-  top: 40px;
-  left: 38px;
+  width: 100%;
   color: #ffffff;
   font-size: 20px;
   line-height: 20px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   position: relative;
@@ -244,9 +233,6 @@
   color: #ffffff;
   font-size: 24px;
   line-height: 24px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 }
@@ -322,12 +308,12 @@
 
 .OPT-macbook-pro .venue-info {
   position: relative;
-  width: 395px;
-  height: 202px;
+  width: 100%;
+  height: auto;
 }
 
 .OPT-macbook-pro .element-washington-blvd {
-  width: 394px;
+  width: 100%;
   top: 0;
   left: 1px;
   color: #000000;
@@ -350,7 +336,7 @@
 
 .OPT-macbook-pro .vector {
   position: relative;
-  width: 323px;
+  width: 100%;
   height: 1px;
   display: block;
   object-fit: cover;
@@ -388,6 +374,20 @@ a div.link:hover {
     gap: 6rem
   }
 
+  .OPT-macbook-pro .element-RSVP,
+  .OPT-macbook-pro .element-accomodations {
+    padding: 3rem;
+  }
+
+  .OPT-macbook-pro .text-wrapper-8 {
+    font-size: 3rem;
+  }
+
+  .OPT-macbook-pro .overlap-2,
+  .OPT-macbook-pro .overlap-3 {
+    min-width: 250px;
+  }
+
   .OPT-macbook-pro .overlap-3 {
     display: flex;
     gap: 1rem;
@@ -400,5 +400,12 @@ a div.link:hover {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+  }
+
+  .OPT-macbook-pro .text-wrapper-3 {
+    font-size: 3.5rem;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 2rem;
   }
 }
