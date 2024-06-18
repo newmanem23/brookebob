@@ -1,3 +1,7 @@
+:root {
+  margin: 0;
+}
+
 .OPT-macbook-pro {
   background-color: #ffffff;
   display: flex;
@@ -13,7 +17,6 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
 }
 
 /* .OPT-macbook-pro .overlap {
@@ -50,7 +53,7 @@
   font-family: "Lusitana", Helvetica;
   font-weight: 400;
   color: #000000;
-  font-size: 14px;
+  font-size: 1rem;
   letter-spacing: 0.98px;
   line-height: normal;
   white-space: nowrap;
@@ -72,7 +75,6 @@
 
 .OPT-macbook-pro .accomodations {
   width: 158px;
-
   font-family: "Lusitana", Helvetica;
   font-weight: 400;
   color: #000000;
@@ -85,7 +87,6 @@
 .OPT-macbook-pro .details {
   width: 70px;
   left: 192px;
-  position: absolute;
   top: 25px;
   font-family: "Lusitana", Helvetica;
   font-weight: 400;
@@ -97,37 +98,29 @@
 }
 
 .OPT-macbook-pro .element-accomodations {
-  position: absolute;
-  width: 1512px;
-  height: 1417px;
-  top: 1741px;
-  left: 0;
+  position: relative;
+  width: min(100%, 1512px);
+  height: auto;
   background-color: #0b0b0b;
+  padding: 6rem; 
 }
 
 .OPT-macbook-pro .footer {
-  position: absolute;
-  width: 1512px;
-  height: 491px;
-  top: 926px;
-  left: 0;
+  position: relative;
+  width: min(1512px, 100%);
+  height: auto;
   background-color: transparent;
 }
 
 .OPT-macbook-pro .jerseycityskyline {
-  position: absolute;
-  width: 1512px;
-  height: 486px;
-  top: 0;
-  left: 0;
+  width: min(1512px, 100%);
+  height: auto;
   mix-blend-mode: luminosity;
   object-fit: cover;
 }
 
 .OPT-macbook-pro .text-wrapper-3 {
-  position: absolute;
-  top: 91px;
-  left: 191px;
+  position: relative;
   font-family: "Mea Culpa", Helvetica;
   font-weight: 400;
   color: #ffffff;
@@ -137,10 +130,8 @@
 }
 
 .OPT-macbook-pro .p {
-  position: absolute;
-  width: 551px;
-  top: 228px;
-  left: 191px;
+  position: relative;
+  width: 100%;
   font-family: var(--bodycopy-font-family);
   font-weight: 400;
   color: #ffffff;
@@ -156,10 +147,8 @@
 }
 
 .OPT-macbook-pro .additional-options {
-  position: absolute;
-  width: 440px;
-  top: 226px;
-  left: 880px;
+  position: relative;
+  width: 100%;   
   font-family: "Lusitana", Helvetica;
   font-weight: 400;
   color: #ffffff;
@@ -204,11 +193,9 @@
 }
 
 .OPT-macbook-pro .overlap-group {
-  position: absolute;
-  width: 551px;
+  position: relative;
+  width: 100%;
   height: 192px;
-  top: 498px;
-  left: 191px;
   border: 1px solid;
   border-color: #ffffff;
 }
@@ -225,7 +212,7 @@
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
-  position: absolute;
+  position: relative;
   font-family: "Lusitana", Helvetica;
   font-weight: 400;
 }
@@ -234,11 +221,24 @@
   letter-spacing: 0.28px;
 }
 
+.OPT-macbook-pro .accommodations-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+
+.OPT-macbook-pro .accommodations-left,
+.OPT-macbook-pro .accommodations-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  min-width: 300px;
+}
+
 .OPT-macbook-pro .the-preferred-hotel {
-  position: absolute;
-  width: 479px;
-  top: 359px;
-  left: 191px;
+  position: relative;
+  width: 100%;
   font-family: "Lusitana", Helvetica;
   font-weight: 400;
   color: #ffffff;
@@ -255,25 +255,23 @@
   width: min(100%, 1512px);
   height: auto;
   display: flex;
+  padding: 6rem;
   flex-wrap: wrap;
 
 }
 
-.OPT-macbook-pro .overlap-2 {
-  flex: 1;
-  width: 730px;
-  height: 631px;
-
-}
-
+.OPT-macbook-pro .overlap-2,
 .OPT-macbook-pro .overlap-3 {
   flex: 1;
+  min-width: 400px;
+  display: block;
 }
+
 
 .OPT-macbook-pro .image {
   position: relative;
-  width: min(555px, 75%);
-  height: auto
+  width: 100%;
+  height: auto;
   top: 0;
   left: 0;
   object-fit: cover;
@@ -281,10 +279,8 @@
 
 .OPT-macbook-pro .IMG {
   position: relative;
-  width: 351px;
-  height: 476px;
-  top: 155px;
-  left: 379px;
+  width: 50%;
+  height: auto;
   object-fit: cover;
 }
 
@@ -292,8 +288,6 @@
   position: relative;
   width: 135px;
   height: 60px;
-  top: 421px;
-  left: 200px;
 }
 
 .OPT-macbook-pro .r-s-v-p-wrapper {
@@ -318,8 +312,6 @@
 }
 
 .OPT-macbook-pro .text-wrapper-8 {
-  position: relative;
-  left: 195px;
   font-family: "Mea Culpa", Helvetica;
   font-weight: 400;
   color: #000000;
@@ -332,7 +324,6 @@
   position: relative;
   width: 395px;
   height: 202px;
-  left: 199px;
 }
 
 .OPT-macbook-pro .element-washington-blvd {
@@ -342,7 +333,7 @@
   color: #000000;
   font-size: 24px;
   line-height: 24px;
-  position: absolute;
+  position: relative;
   font-family: "Lusitana", Helvetica;
   font-weight: 400;
 }
@@ -358,11 +349,10 @@
 }
 
 .OPT-macbook-pro .vector {
-  position: absolute;
+  position: relative;
   width: 323px;
   height: 1px;
-  top: 92px;
-  left: 0;
+  display: block;
   object-fit: cover;
 }
 
@@ -380,7 +370,7 @@ a div.link:hover {
   display: none;
 }
 
-@media only screen and (max-width: 640px) {
+@media (max-width: 800px) {
   .OPT-macbook-pro .navbar {
     flex-direction: column;
     padding: 1rem;
@@ -390,5 +380,25 @@ a div.link:hover {
 
   .OPT-macbook-pro .header {
     height: auto;
+  }
+}
+
+@media (max-width: calc(12rem + 800px)) {
+  .OPT-macbook-pro .element-RSVP {
+    gap: 6rem
+  }
+
+  .OPT-macbook-pro .overlap-3 {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  p.element-washington-blvd {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
   }
 }
